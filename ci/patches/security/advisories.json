@@ -1,0 +1,65 @@
+{
+    "cves": [
+      {
+        "cveID": "CVE-2021-39179",
+        "privateForkUrl": "https://github.com/dhis2/dhis2-core-ghsa-cmpc-frjv-rrmw",
+        "status": "APPLIED",
+        "pullRequests": [
+          {
+            "prNumber": 14,
+            "target": "patch/2.35.7"
+          },
+          {
+            "prNumber": 15,
+            "target": "patch/2.35.8"
+          }
+        ]
+      },
+      {
+        "cveID": "CVE-2021-41187",
+        "privateForkUrl": "https://github.com/dhis2/dhis2-core-ghsa-fvm5-gp3j-c7c6",
+        "status": "APPLIED",
+        "pullRequests": [
+          {
+            "prNumber": 7,
+            "target": "patch/2.34.7"
+          },
+          {
+            "prNumber": 8,
+            "target": "patch/2.35.8"
+          },
+          {
+            "prNumber": 9,
+            "target": "patch/2.36.4"
+          }
+        ]
+      },
+      {
+        "cveID": "CVE-2022-24848",
+        "privateForkUrl": "https://github.com/dhis2/dhis2-core-ghsa-52vp-f7hj-cj92",
+        "status": "APPLIED",
+        "pullRequests": [
+          {
+            "prNumber": 1,
+            "target": "patch/2.38.0"
+          },
+          {
+            "prNumber": 2,
+            "target": "patch/2.37.6.1"
+          },
+          {
+            "prNumber": 3,
+            "target": "patch/2.36.10.1"
+          },
+          {
+            "prNumber": 4,
+            "target": "2.36_ks"
+          }  ,
+          {
+            "prNumber": 5,
+            "target": "patch/2.36.11"
+          }            
+        ]
+      }
+    ]
+}
