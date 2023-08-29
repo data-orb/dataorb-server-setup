@@ -5,11 +5,11 @@
 # ID. For example, a patch build like, 2.31.1, might be sent to
 # <releases>/2.31/2.31.1/ instead of <releases>/2.31.1/
 
-WAR_LOCATION="/ebs1/jenkins/workspace/dhis2-$1/dhis-2/dhis-web/dhis-web-portal/target/dhis.war"
-S3_LOCATION="s3://releases.dhis2.org/$2/dhis.war"
+WAR_LOCATION="/ebs1/jenkins/workspace/dataorb-$1/dataorb/dlms-web/dlms-web-portal/target/dlms.war"
+S3_LOCATION="s3://releases.dataorb.co/$2/dlms.war"
 
-if [ ! -d /ebs1/jenkins/workspace/dhis2-$1 ]; then
-  echo "No job with name dhis2-$1 exists."
+if [ ! -d /ebs1/jenkins/workspace/dataorb-$1 ]; then
+  echo "No job with name dataorb-$1 exists."
   exit 1
 fi
 

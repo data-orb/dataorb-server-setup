@@ -10,7 +10,7 @@
 # DB_BASE_DIR
 # DB_FILE
 # AUTH
-DBVERSION="DHIS2_DB_VERSION"
+DBVERSION="DATAORB_DB_VERSION"
 
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -24,12 +24,12 @@ fi
 
 function getVersion() {
   # By default the dhis2 db version is the same as the instance name
-  # but that can be overridden with the contents of the DHIS2_DB_VERSION file
-  DHIS2_VERSION=$1
+  # but that can be overridden with the contents of the DATAORB_DB_VERSION file
+  DATAORB_VERSION=$1
   if [ -e ${BASE_DIR}/$1/$DBVERSION ]; then
-    DHIS2_VERSION=`cat ${BASE_DIR}/$1/$DBVERSION`
+    DATAORB_VERSION=`cat ${BASE_DIR}/$1/$DBVERSION`
   fi
-  set -- "$DHIS2_VERSION"
+  set -- "$DATAORB_VERSION"
 }
 
 function validate() {
@@ -38,10 +38,10 @@ function validate() {
     echo "Instance $1 does not exist."
     exit 1
   fi
-  DHIS2_VERSION=$1
-  getVersion $DHIS2_VERSION
-  if [ ! -d "${DB_BASE_DIR}/${DHIS2_VERSION}" ]; then
-    echo "Instance $1 does not have the required SQL file database directory $DB_BASE_DIR/$DHIS2_VERSION."
+  DATAORB_VERSION=$1
+  getVersion $DATAORB_VERSION
+  if [ ! -d "${DB_BASE_DIR}/${DATAORB_VERSION}" ]; then
+    echo "Instance $1 does not have the required SQL file database directory $DB_BASE_DIR/$DATAORB_VERSION."
     exit 1
   fi
 }
@@ -59,9 +59,9 @@ function run() {
   sudo -u postgres psql -c "create extension postgis_tiger_geocoder;" $1
   sudo -u postgres psql -c "create extension postgis_topology;" $1
 
-  DHIS2_VERSION=$1
-  getVersion $DHIS2_VERSION
-  cp "${DB_BASE_DIR}/${DHIS2_VERSION}/${DB_FILE}.sql.gz" "${TMP_DIR}/${DB_FILE}-${1}.sql.gz"
+  DATAORB_VERSION=$1
+  getVersion $DATAORB_VERSION
+  cp "${DB_BASE_DIR}/${DATAORB_VERSION}/${DB_FILE}.sql.gz" "${TMP_DIR}/${DB_FILE}-${1}.sql.gz"
   gunzip -f "${TMP_DIR}/${DB_FILE}-${1}.sql.gz"
   sudo -u postgres psql -d "${1}" -f "${TMP_DIR}/${DB_FILE}-${1}.sql"
   rm "${TMP_DIR}/${DB_FILE}-${1}.sql.gz"
@@ -75,7 +75,7 @@ function analytics() {
 }
 
 function baseurl() {
-  curl ${INSTANCE_BASE_URL}/$1/api/systemSettings/keyInstanceBaseUrl -X POST -H "Content-Type: text/plain" -u $AUTH -d https://play.dhis2.org/$1
+  curl ${INSTANCE_BASE_URL}/$1/api/systemSettings/keyInstanceBaseUrl -X POST -H "Content-Type: text/plain" -u $AUTH -d https://play.dataorb.co/$1
 }
 
 for instance in $@; do

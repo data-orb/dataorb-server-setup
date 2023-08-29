@@ -1,7 +1,7 @@
 #!/bin/bash
 
 reset_instance () {
-    BASE_URL="https://play.dhis2.org/""$1""/api/"
+    BASE_URL="https://play.dataorb.co/""$1""/api/"
     CREDS="system:System123"
    
     curl -X POST -H "Content-Type: text/plain" -d "iso8601" $BASE_URL"/systemSettings/keyCalendar" -u $CREDS

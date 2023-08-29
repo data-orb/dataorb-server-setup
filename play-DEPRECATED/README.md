@@ -1,4 +1,4 @@
-# DHIS 2 server setup
+# DataOrb server setup
 
 Server administration scripts, tools and setup.
 
@@ -6,7 +6,7 @@ Server administration scripts, tools and setup.
 
 To initiate a new instance from the beginning:
 
-* Add location for DHIS 2 instance in nginx dhis config
+* Add location for DataOrb instance in nginx dhis config
 
 * Restart nginx
 
@@ -19,11 +19,11 @@ sudo service nginx restart
 
 
 ```
-./create-instance.sh <name/version> 8028 <dhis2-release-version>
+./create-instance.sh <name/version> 8028 <dataorb-release-version>
 
-# if <dhis2-release-version> is provided then it is used to define the build,
+# if <dataorb-release-version> is provided then it is used to define the build,
 # and the first parameter is simply the name of the instance.
-# If <dhis2-release-version> is not provided, the first parameter represents
+# If <dataorb-release-version> is not provided, the first parameter represents
 # both the name of the instance and the build version used.
 
 e.g.
@@ -34,9 +34,9 @@ or
 ```
 
 > NOTE:
-> When `<dhis2-release-version>` is used it creates a file called
-> `<instance-directory>/DHIS2_VERSION` containing the build identifier.
-> It also created a file called `<instance-directory>/DHIS2_DB_VERSION` with
+> When `<dataorb-release-version>` is used it creates a file called
+> `<instance-directory>/DATAORB_VERSION` containing the build identifier.
+> It also created a file called `<instance-directory>/DATAORB_DB_VERSION` with
 > the same content, which is used to identify the demo DB to be used.
 >
 > Both of these files should be manually edited if you want the instance to
@@ -55,7 +55,7 @@ or
 ./list-used-ports.sh
 ```
 
-* Download and install DHIS 2 WAR file
+* Download and install DataOrb WAR file
 
 ```
 ./reinit-instance.sh 2.28
@@ -67,7 +67,7 @@ or
 ./reinit-db-instance.sh 2.28
 ```
 
-* Download and install *BOTH* the sample PostgreSQL database and DHIS 2 WAR file in one go
+* Download and install *BOTH* the sample PostgreSQL database and DataOrb WAR file in one go
 
 ```
 ./init-full-instance.sh 2.28

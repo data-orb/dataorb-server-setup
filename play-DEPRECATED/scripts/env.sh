@@ -9,15 +9,15 @@ if [[ ! -n ${BASE_DIR:-} ]]; then
 fi
 
 if [[ ! -n ${BASE_URL:-} ]]; then
-    export BASE_URL="https://play.dhis2.org"
+    export BASE_URL="https://play.dataorb.co"
 fi
 
 if [[ ! -n ${DB_BASE_DIR:-} ]]; then
-    export DB_BASE_DIR="/ebs1/databases/sierra-leone"
+    export DB_BASE_DIR="/ebs1/databases/global"
 fi
 
 if [[ ! -n ${DB_FILE:-} ]]; then
-    export DB_FILE="dhis2-db-sierra-leone"
+    export DB_FILE="dataorb-db-global"
 fi
 
 if [[ ! -n ${AUTH:-} ]]; then
@@ -29,9 +29,9 @@ if [[ ! -n ${JENKINS_WORKSPACE:-} ]]; then
 fi
 
 if [[ ! -n ${WAR_LOCATION:-} ]]; then
-    export WAR_LOCATION="${JENKINS_WORKSPACE}/dhis2-${1}/dhis-2/dhis-web/dhis-web-portal/target/dhis.war"
+    export WAR_LOCATION="${JENKINS_WORKSPACE}/dataorb-${1}/dataorb/dlms-web/dlms-web-portal/target/dlms.war"
 fi
 
 if [[ ! -n ${S3_LOCATION:-} ]]; then
-    export S3_LOCATION="s3://releases.dhis2.org/${1}/dhis.war"
+    export S3_LOCATION="s3://releases.dataorb.co/${1}/dlms.war"
 fi
